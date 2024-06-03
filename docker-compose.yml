@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  simple_app:
+    build: .
+    container_name: simple_app
+    ports:
+      - "8081:80" # Mengubah port host ke 8081
+    networks:
+      - simple_app_network
+    volumes:
+      - ./app:/app
+    environment:
+      - NODE_ENV=production
+
+  mariadb:
+    image: mariadb
+    container_name: simple_app_mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - simple_app_network
+
+  nginx:
+    image: nginx
+    container_name: simple_app_nginx
+    ports:
+      - "444:443"
+      - "4081:80" # Mengubah port host ke 8081
+    networks:
+      - simple_app_network
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+networks:
+  simple_app_network:
+
+volumes:
+  mariadb_data:
