@@ -1,27 +1,18 @@
-# Gunakan image node resmi sebagai base image
+# Gunakan image node sebagai base
 FROM node:14-alpine
 
-# Set working directory
+# Buat direktori kerja dan salin package.json serta package-lock.json
 WORKDIR /app
+COPY package.json package-lock.json ./
 
-# Salin package.json dan package-lock.json
-COPY package*.json ./
-
-# Instal dependencies
+# Install dependencies
 RUN npm install
 
-# Salin semua file dari direktori lokal ke working directory dalam container
+# Salin semua file ke dalam direktori kerja
 COPY . .
 
-# Build aplikasi untuk produksi
-RUN npm run build
+# Expose port 3000
+EXPOSE 3000
 
-# Gunakan image nginx resmi untuk melayani konten build
-FROM nginx:alpine
-COPY --from=0 /app/build /usr/share/nginx/html
-
-# Ekspose port yang akan digunakan oleh container
-EXPOSE 80
-
-# Command untuk menjalankan nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Perintah untuk menjalankan aplikasi
+CMD ["npm", "start"]

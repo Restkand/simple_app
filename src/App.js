@@ -1,37 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
 import Home from './components/home';
-import About from './components/about';
+import Service from './components/Service';
+// import Works from './components/Works';
+// import Stories from './components/Stories';
+// import Culture from './components/Culture';
+// import Career from './components/Career';
+// import Contact from './components/Contact';
 
 function App() {
-  const [page, setPage] = useState(window.location.pathname);
-
-  useEffect(() => {
-    const handlePopState = () => setPage(window.location.pathname);
-    window.addEventListener('popstate', handlePopState);
-
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  const navigate = (path) => {
-    window.history.pushState({}, '', path);
-    setPage(path);
-  };
-
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
-          </li>
-          <li>
-            <a href="/about" onClick={(e) => { e.preventDefault(); navigate('/about'); }}>About</a>
-          </li>
-        </ul>
-      </nav>
-      {page === '/' && <Home />}
-      {page === '/about' && <About />}
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Service />} />
+        {/* <Route path="/works" element={<Works />} />
+        <Route path="/stories" element={<Stories />} />
+        <Route path="/culture" element={<Culture />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/contact" element={<Contact />} /> */}
+      </Routes>
+    </Router>
   );
 }
 
