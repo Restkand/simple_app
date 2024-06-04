@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Sharp Grotesk';
+    src: url('../../assets/fonts/Sharp_Grotesk/SharpGrotesk-Bold20.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../assets/fonts/Sharp_Grotesk/SharpGrotesk-Bold20.otf') format('truetype');
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: white;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 45px;
+    padding-left: 10px;
+    /* font-weight: bold; */
+}
+
+.nav {
+    display: flex;
+}
+
+.nav a {
+    margin: 0 24px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
+
+.nav_right {
+    font-family: 'Sharp Grotesk', sans-serif;
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+}
+
+.main {
+    text-align: center;
+    padding: 50px 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content p {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+.illustrations {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.illustration {
+    margin: 0 20px;
+    height: 100px; /* Adjust the size of illustrations */
+}
+
+.scroll-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #800080; /* Purple color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrow-up {
+    font-size: 24px;
+}
+
+@media (max-width: 1080px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        text-align: right;
+        padding: 10px 0;
+    }
+
+    .nav a {
+        margin: 10px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+}
