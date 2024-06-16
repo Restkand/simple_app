@@ -20,7 +20,7 @@ function Navbar() {
   }, []);
 
   return (
-    <header className="header">
+    <header className="header sticky top-0">
       <nav className="nav">
       <div className="logo">
         <Link to="/">DOKI</Link>
