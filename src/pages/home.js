@@ -4,8 +4,17 @@ import myGif from '../assets/gif/DK-Homepage-One-Loop-With-Background.mp4';
 import myLYellow from '../assets/gif/DK-Illustration-Home-Page-Short-About-LYellow.gif';
 import myRYellow from '../assets/gif/DK-Illustration-Home-Page-Short-About-RYellow.gif';
 import { Link } from 'react-router-dom';
+import Cards from '../widgets/Cards/Cards';
+import DanoneImg from '../assets/gif/Danone-540.gif';
+import FonterraImg from '../assets/gif/Fonterra-540.gif';
 
 function Home() {
+const cardDanone = 'Danone • 2021';
+const cardDanoneDesc = "BRINGING INDONESIAN ONE STEP CLOSER TO A HEALTHIER LIFE & CLEANER ENVIRONMENT";
+
+const cardFonterra = 'Fonterra • 2020';
+const cardFonterraDesc = "ELEVATING F&B BUSINESSES TO BE BETTER WITH HIGH QUALITY DAIRY PRODUCTS";
+
 return (
 <div className="allhome">
     <div className="home-1 pt-28 pb-32 px-20">
@@ -45,16 +54,11 @@ return (
                 </Link>
             </div>
         </div>
-        <div className='HeroSection'>
-            <div class="max-w-full rounded-lg overflow-hidden shadow-lg bg-black text-white">
-                {/* <img class="w-full" src="https://via.placeholder.com/400x200" alt="Placeholder Image"> */}
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Card Title</div>
-                    <p class="text-gray-300 text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                    </p>
-                </div>
-            </div>
+        <div className='Danone pb-4'>
+            <Cards title={cardDanone} description={cardDanoneDesc} imageSrc={DanoneImg} />
+        </div>
+        <div className='Fatore'>
+            <Cards title={cardFonterra} description={cardFonterraDesc} imageSrc={FonterraImg} />
         </div>
     </div>
 </div>

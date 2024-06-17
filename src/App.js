@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Home from './components/home';
-import Service from './components/Service';
+import Navbar from './widgets/Navbar/Navbar';
+import Home from './pages/home';
+import Service from './pages/Service';
 // import Works from './components/Works';
 // import Stories from './components/Stories';
 // import Culture from './components/Culture';
